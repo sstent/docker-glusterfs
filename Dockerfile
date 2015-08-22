@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER Manel Martinez <manel@nixelsolutions.com>
+MAINTAINER Samuel Terburg <samuel.terburg@panther-it.nl>
 
 RUN apt-get update && \
     apt-get install -y python-software-properties software-properties-common
@@ -13,7 +13,7 @@ ENV ROOT_PASSWORD **ChangeMe**
 ENV SSH_PORT 2222
 ENV SSH_USER root
 ENV SSH_OPTS -p ${SSH_PORT} -o ConnectTimeout=20 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
-ENV GLUSTER_VOL ranchervol
+ENV GLUSTER_VOL vol0
 ENV GLUSTER_BRICK_PATH /gluster_volume
 ENV GLUSTER_CONF_FLAG /etc/gluster.env
 ENV SERVICE_NAME gluster

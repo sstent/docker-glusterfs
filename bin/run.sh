@@ -18,15 +18,11 @@ fi
 sleep 5
 export GLUSTER_PEERS=`dig +short ${SERVICE_NAME}`
 if [ -z "${GLUSTER_PEERS}" ]; then
-   echo "*** ERROR: Could not determine which containers are part of this service."
-   echo "*** Is this service named \"${SERVICE_NAME}\"? If not, please regenerate the service"
-   echo "*** and add SERVICE_NAME environment variable which value should be equal to this service name"
-   echo "*** Exiting ..."
-   exit 1
+   echo "*** WARNING: Could not determine which containers are part of this service '${SERVICE_NAME}'."
 fi
-export MY_RANCHER_IP=`ip addr | grep inet | grep 10.42 | tail -1 | awk '{print $2}' | awk -F\/ '{print $1}'`
-if [ -z "${MY_RANCHER_IP}" ]; then
-   echo "*** ERROR: Could not determine this container Rancher IP - Exiting ..."
+export MY_IP=`ip addr | grep inet | grep 10.42 | tail -1 | awk '{print $2}' | awk -F\/ '{print $1}'`
+if [ -z "${MY_IP}" ]; then
+   echo "*** ERROR: Could not determine this container's IP - Exiting ..."
    exit 1
 fi
 
@@ -41,7 +37,7 @@ echo "SSH_OPTS=\"${SSH_OPTS}\"" >> ${GLUSTER_CONF_FLAG}
 echo "GLUSTER_VOL=\"${GLUSTER_VOL}\"" >> ${GLUSTER_CONF_FLAG}
 echo "GLUSTER_BRICK_PATH=\"${GLUSTER_BRICK_PATH}\"" >> ${GLUSTER_CONF_FLAG}
 echo "DEBUG=\"${DEBUG}\"" >> ${GLUSTER_CONF_FLAG}
-echo "MY_RANCHER_IP=\"${MY_RANCHER_IP}\"" >> ${GLUSTER_CONF_FLAG}
+echo "MY_IP=\"${MY_IP}\"" >> ${GLUSTER_CONF_FLAG}
 
 join-gluster.sh &
 /usr/bin/supervisord
