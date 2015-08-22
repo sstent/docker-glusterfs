@@ -15,12 +15,12 @@ if [ "${SERVICE_NAME}" == "**ChangeMe**" -o -z "${SERVICE_NAME}" ]; then
 fi
 
 # Required stuff to work
-sleep 5
+sleep 30
 export GLUSTER_PEERS=`dig +short ${SERVICE_NAME}`
 if [ -z "${GLUSTER_PEERS}" ]; then
    echo "*** WARNING: Could not determine which containers are part of this service '${SERVICE_NAME}'."
 fi
-export MY_IP=`ip addr | grep inet | grep 10.42 | tail -1 | awk '{print $2}' | awk -F\/ '{print $1}'`
+export MY_IP=`ip addr show scope global |grep inet | tail -1 | awk '{print $2}' | awk -F\/ '{print $1}'`
 if [ -z "${MY_IP}" ]; then
    echo "*** ERROR: Could not determine this container's IP - Exiting ..."
    exit 1
