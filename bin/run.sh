@@ -15,7 +15,7 @@ if [ "${SERVICE_NAME}" == "**ChangeMe**" -o -z "${SERVICE_NAME}" ]; then
 fi
 
 # Required stuff to work
-sleep 30
+sleep 8
 export GLUSTER_PEERS=`dig +short ${SERVICE_NAME}`
 if [ -z "${GLUSTER_PEERS}" ]; then
    echo "*** WARNING: Could not determine which containers are part of this service '${SERVICE_NAME}'."

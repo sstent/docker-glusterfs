@@ -2,24 +2,31 @@
 GlusterFS Server with peer-discovery.
 
 
+Compatible
+==========
+* Works on Kubernetes + SkyDNS
+* Works on OpenShift
+* Works on Rancher
+
 Features
 ========
-* Compatible with the Service Discovery (SkyDNS) feature of Kubernetes.
-* Each added container increases the replica count
+* Will discover peers based on same name DNS records.
+* Will auto-peer with peers to form a cluster.
+* Will auto-create a shared volume or will join in an existing volume if name matches. (increasing the replica count)
 
 
 Environment Variables
 =====================
-| Name               | Description                                |
-|:------------------ |:------------------------------------------ |
-| ROOT_PASSWORD      | SSH login                                  |
-| SERVICE_NAME       | DNS name to query = discover peers         |
-| SSH_USER           | SSH login to peers                         |
-| SSH_PORT           | SSH port to listen on for peers to connect |
-| SSH_OPTS           | SSH options                                |
-| GLUSTER_VOL        | name of the gluster volume to expose       |
-| GLUSTER_BRICK_PATH | Path of the local brick (mount)            |
-| DEBUG=1            | Verbose mode                               |
+| Name               | Description                                | Default         | Example                                     |
+|:------------------ |:------------------------------------------ |:--------------- |:------------------------------------------- |
+| ROOT_PASSWORD      | SSH login                                  | [required]      | blabla9!                                    |
+| SERVICE_NAME       | DNS name to query = discover peers         | gluster         | glusterfs-storage.default.svc.cluster.local |
+| SSH_USER           | SSH login to peers                         | root            | glusterfs                                   |
+| SSH_PORT           | SSH port to listen on for peers to connect | 2222            | 22                                          |
+| SSH_OPTS           | SSH options                                | -p 2222 -o ConnectTimeout=20 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no |                                             |
+| GLUSTER_VOL        | name of the gluster volume to expose       | vol0            | myvol0                                      |
+| GLUSTER_BRICK_PATH | Path of the local brick (mount)            | /gluster_volume | /bricks/brick0                              |
+| DEBUG=1            | Verbose mode                               | 0               |                                             |
 
 
 Examples
@@ -29,7 +36,10 @@ See examples dir.
 
 Author
 ======
-Forked from: nixel/rancher-glusterfs-server <Manel Martinez>
-Additional : Samuel Terburg @ Hoolia
-
+* Manel Martinez:
+  * For his work on the original nixel/rancher-glusterfs-server
+* Samuel Terburg @ Hoolia
+  * Kubernetes compatibility
+  * Documentation
+  * Examples
 
