@@ -26,6 +26,10 @@ if [ -z "${MY_IP}" ]; then
    exit 1
 fi
 
+for i in `seq 1 $MAX_VOLUMES`; do
+  [ ! -d ${GLUSTER_BRICK_PATH}/$i ] && mkdir ${GLUSTER_BRICK_PATH}/$i
+done
+
 echo "root:${ROOT_PASSWORD}" | chpasswd
 
 # Prepare a shell to initialize docker environment variables for ssh
