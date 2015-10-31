@@ -5,8 +5,6 @@
 
 set -e
 
-[ "$DEBUG" == "1" ] && set -x && set +e
-
 PEER=$1
 
 if [ -z "${PEER}" ]; then
@@ -29,6 +27,8 @@ function detach() {
    rm -f ${SEMAPHORE_FILE}
    exit 1
 }
+
+[ "$DEBUG" == "1" ] && set -x && set +e
 
 echo "=> Checking if I can reach gluster container ${PEER} ..."
 if sshpass -p ${ROOT_PASSWORD} ssh ${SSH_OPTS} ${SSH_USER}@${PEER} "hostname" >/dev/null 2>&1; then

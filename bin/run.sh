@@ -42,6 +42,7 @@ echo "GLUSTER_VOL=\"${GLUSTER_VOL}\"" >> ${GLUSTER_CONF_FLAG}
 echo "GLUSTER_BRICK_PATH=\"${GLUSTER_BRICK_PATH}\"" >> ${GLUSTER_CONF_FLAG}
 echo "DEBUG=\"${DEBUG}\"" >> ${GLUSTER_CONF_FLAG}
 echo "MY_IP=\"${MY_IP}\"" >> ${GLUSTER_CONF_FLAG}
+echo "MAX_VOLUMES=\"${MAX_VOLUMES}\"" >> ${GLUSTER_CONF_FLAG}
 
 join-gluster.sh &
 /usr/bin/supervisord
