@@ -67,8 +67,8 @@ for i in `seq 1 $MAX_VOLUMES`; do
 	      gluster --mode=script volume remove-brick ${GLUSTER_VOL}${i} replica $((NUMBER_OF_REPLICAS-1)) ${PEER}:${GLUSTER_BRICK_PATH}/${i} force
 	      sleep 5
 	   fi
-	      gluster peer detach ${PEER} force
-	      sleep 5
+	   gluster peer detach ${PEER} force
+	   sleep 5
 	fi
 
 	# Probe the peer
@@ -80,7 +80,7 @@ for i in `seq 1 $MAX_VOLUMES`; do
 	fi
 
 	# Check how many peers are already joined in the cluster - needed to add a replica
-	NUMBER_OF_REPLICAS=`gluster volume info ${GLUSTER_VOL} | grep "Number of Bricks:" | awk '{print $6}'`
+	NUMBER_OF_REPLICAS=`gluster volume info ${GLUSTER_VOL}${i} | grep "Number of Bricks:" | awk '{print $6}'`
 	# Create the volume
 	if ! gluster volume list | grep "^${GLUSTER_VOL}${i}$" >/dev/null; then
 	   echo "=> Creating GlusterFS volume ${GLUSTER_VOL}${i}..."
