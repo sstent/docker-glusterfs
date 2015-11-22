@@ -1,0 +1,1403 @@
+apiVersion: v1
+kind: List
+items:
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting1"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared1"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting2"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared2"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting3"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared3"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting4"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared4"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting5"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared5"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting6"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared6"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting7"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared7"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting8"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared8"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting9"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared9"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting10"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared10"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting11"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared11"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting12"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared12"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting13"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared13"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting14"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared14"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting15"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared15"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting16"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared16"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting17"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared17"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting18"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared18"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting19"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared19"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting20"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared20"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting21"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared21"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting22"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared22"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting23"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared23"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting24"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared24"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting25"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared25"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting26"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared26"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting27"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared27"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting28"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared28"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting29"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared29"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting30"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared30"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting31"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared31"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting32"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared32"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting33"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared33"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting34"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared34"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting35"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared35"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting36"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared36"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting37"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared37"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting38"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared38"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting39"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared39"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting40"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared40"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting41"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared41"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting42"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared42"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting43"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared43"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting44"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared44"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting45"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared45"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting46"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared46"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting47"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared47"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting48"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared48"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting49"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared49"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting50"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared50"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting51"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared51"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting52"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared52"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting53"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared53"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting54"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared54"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting55"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared55"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting56"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared56"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting57"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared57"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting58"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared58"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting59"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared59"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting60"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared60"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting61"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared61"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting62"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared62"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting63"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared63"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting64"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared64"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting65"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared65"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting66"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared66"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting67"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared67"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting68"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared68"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting69"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared69"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting70"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared70"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting71"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared71"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting72"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared72"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting73"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared73"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting74"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared74"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting75"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared75"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting76"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared76"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting77"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared77"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting78"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared78"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting79"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared79"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting80"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared80"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting81"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared81"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting82"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared82"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting83"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared83"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting84"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared84"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting85"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared85"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting86"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared86"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting87"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared87"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting88"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared88"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting89"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared89"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting90"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared90"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting91"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared91"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting92"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared92"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting93"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared93"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting94"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared94"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting95"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared95"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting96"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared96"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting97"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared97"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting98"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared98"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting99"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared99"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting100"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared100"
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"

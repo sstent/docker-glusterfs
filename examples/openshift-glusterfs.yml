@@ -26,7 +26,7 @@ items:
 - kind: Service
   apiVersion: v1
   metadata:
-    name: glusterfs-storage
+    name: storage-webhosting
   spec:
     PortalIP: None
     ClusterIP: None
@@ -63,28 +63,29 @@ items:
       port: 2049
       targetPort: 2049
     selector:
-      deploymentconfig: glusterfs-storage
+      service: storage-webhosting
 - apiVersion: v1
   kind: DeploymentConfig
   metadata:
-    name: glusterfs-storage
+    name: storage-webhosting1
   status:
     latestVersion: 1
   spec:
-    replicas: 2
+    replicas: 1
     selector:
-      deploymentconfig: glusterfs-storage
+      deploymentconfig: storage-webhosting1
     strategy:
       type: Rolling
     template:
       metadata:
         labels:
-          deploymentconfig: glusterfs-storage
+          service: storage-webhosting
+          deploymentconfig: storage-webhosting1
       spec:
         serviceAccount: glusterfs
         dnsPolicy: ClusterFirst
         containers:
-        - name: glusterfs-server
+        - name: glusterfs-server1
           image: hoolia/kubernetes-glusterfs-server:latest
           ports:
           - containerPort: 22
@@ -99,14 +100,14 @@ items:
           - containerPort: 111
             protocol: UDP
           env:
-          - name: GLUSTER_BRICK_PATH
-            value:
+          - name: MAX_VOLUMES
+            value: "100"
           - name: GLUSTER_VOL
-            value: shared0
+            value: shared
           - name: GLUSTER_BRICK_PATH
             value: /gluster_volume
           - name: SERVICE_NAME
-            value: glusterfs-storage.default.svc.cluster.local
+            value: storage-webhosting.default.svc.cluster.local
           - name: ROOT_PASSWORD
             value: container_root_password
           - name: DEBUG
@@ -114,8 +115,8 @@ items:
           - name: SSH_PORT
             value: "22"
           volumeMounts:
-            - name: local0
-              mountPath: /gluster_volume
+          - name: shared-webhosting1
+            mountPath: /gluster_volume
           securityContext:
             privileged: true
             runAsUser: 0
@@ -123,16 +124,89 @@ items:
               add:
               - SYS_ADMIN
         volumes:
-          - name: local0
+          - name: shared-webhosting1
             hostPath:
-              path: "/mnt/cluster_storage/local0"
+              path: "/mnt/shared/webhosting/node1"
     triggers:
     - type: ConfigChange
     - type: ImageChange
       imageChangeParams:
         automatic: true
         containerNames:
-        - glusterfs-server
+        - glusterfs-server1
+        from:
+          kind: ImageStreamTag
+          name: kubernetes-glusterfs-server:latest
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    name: storage-webhosting2
+  status:
+    latestVersion: 1
+  spec:
+    replicas: 1
+    selector:
+      deploymentconfig: storage-webhosting2
+    strategy:
+      type: Rolling
+    template:
+      metadata:
+        labels:
+          service: storage-webhosting
+          deploymentconfig: storage-webhosting2
+      spec:
+        serviceAccount: glusterfs
+        dnsPolicy: ClusterFirst
+        containers:
+        - name: glusterfs-server2
+          image: hoolia/kubernetes-glusterfs-server:latest
+          ports:
+          - containerPort: 22
+          - containerPort: 24007
+          - containerPort: 24008
+          - containerPort: 49152
+          - containerPort: 38465
+          - containerPort: 38466
+          - containerPort: 38467
+          - containerPort: 2049
+          - containerPort: 111
+          - containerPort: 111
+            protocol: UDP
+          env:
+          - name: MAX_VOLUMES
+            value: "100"
+          - name: GLUSTER_VOL
+            value: shared
+          - name: GLUSTER_BRICK_PATH
+            value: /gluster_volume
+          - name: SERVICE_NAME
+            value: storage-webhosting.default.svc.cluster.local
+          - name: ROOT_PASSWORD
+            value: container_root_password
+          - name: DEBUG
+            value: "1"
+          - name: SSH_PORT
+            value: "22"
+          volumeMounts:
+          - name: shared-webhosting2
+            mountPath: /gluster_volume
+          securityContext:
+            privileged: true
+            runAsUser: 0
+            capabilities:
+              add:
+              - SYS_ADMIN
+        volumes:
+          - name: shared-webhosting2
+            hostPath:
+              path: "/mnt/shared/webhosting/node2"
+    triggers:
+    - type: ConfigChange
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+        - glusterfs-server2
         from:
           kind: ImageStreamTag
           name: kubernetes-glusterfs-server:latest
@@ -142,3 +216,17 @@ items:
     name: kubernetes-glusterfs-server
   spec:
     dockerImageRepository: hoolia/kubernetes-glusterfs-server
+- apiVersion: "v1"
+  kind: "PersistentVolume"
+  metadata:
+    name: "shared-webhosting1"
+  spec:
+    capacity:
+      storage: "1600Gi" 
+    accessModes:
+      - "ReadWriteMany"
+    glusterfs: 
+      endpoints: "shared-webhosting" 
+      path: "shared1" 
+      readOnly: false
+    persistentVolumeReclaimPolicy: "Recycle"
