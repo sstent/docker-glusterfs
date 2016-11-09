@@ -4,1400 +4,1400 @@ items:
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting1"
+    name: "pv1"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared1"
+      endpoints: "gluster" 
+      path: "pv1"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting2"
+    name: "pv2"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared2"
+      endpoints: "gluster" 
+      path: "pv2"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting3"
+    name: "pv3"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared3"
+      endpoints: "gluster" 
+      path: "pv3"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting4"
+    name: "pv4"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared4"
+      endpoints: "gluster" 
+      path: "pv4"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting5"
+    name: "pv5"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared5"
+      endpoints: "gluster" 
+      path: "pv5"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting6"
+    name: "pv6"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared6"
+      endpoints: "gluster" 
+      path: "pv6"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting7"
+    name: "pv7"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared7"
+      endpoints: "gluster" 
+      path: "pv7"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting8"
+    name: "pv8"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared8"
+      endpoints: "gluster" 
+      path: "pv8"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting9"
+    name: "pv9"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared9"
+      endpoints: "gluster" 
+      path: "pv9"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting10"
+    name: "pv10"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared10"
+      endpoints: "gluster" 
+      path: "pv10"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting11"
+    name: "pv11"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared11"
+      endpoints: "gluster" 
+      path: "pv11"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting12"
+    name: "pv12"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared12"
+      endpoints: "gluster" 
+      path: "pv12"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting13"
+    name: "pv13"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared13"
+      endpoints: "gluster" 
+      path: "pv13"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting14"
+    name: "pv14"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared14"
+      endpoints: "gluster" 
+      path: "pv14"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting15"
+    name: "pv15"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared15"
+      endpoints: "gluster" 
+      path: "pv15"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting16"
+    name: "pv16"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared16"
+      endpoints: "gluster" 
+      path: "pv16"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting17"
+    name: "pv17"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared17"
+      endpoints: "gluster" 
+      path: "pv17"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting18"
+    name: "pv18"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared18"
+      endpoints: "gluster" 
+      path: "pv18"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting19"
+    name: "pv19"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared19"
+      endpoints: "gluster" 
+      path: "pv19"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting20"
+    name: "pv20"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared20"
+      endpoints: "gluster" 
+      path: "pv20"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting21"
+    name: "pv21"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared21"
+      endpoints: "gluster" 
+      path: "pv21"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting22"
+    name: "pv22"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared22"
+      endpoints: "gluster" 
+      path: "pv22"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting23"
+    name: "pv23"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared23"
+      endpoints: "gluster" 
+      path: "pv23"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting24"
+    name: "pv24"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared24"
+      endpoints: "gluster" 
+      path: "pv24"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting25"
+    name: "pv25"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared25"
+      endpoints: "gluster" 
+      path: "pv25"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting26"
+    name: "pv26"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared26"
+      endpoints: "gluster" 
+      path: "pv26"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting27"
+    name: "pv27"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared27"
+      endpoints: "gluster" 
+      path: "pv27"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting28"
+    name: "pv28"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared28"
+      endpoints: "gluster" 
+      path: "pv28"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting29"
+    name: "pv29"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared29"
+      endpoints: "gluster" 
+      path: "pv29"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting30"
+    name: "pv30"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared30"
+      endpoints: "gluster" 
+      path: "pv30"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting31"
+    name: "pv31"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared31"
+      endpoints: "gluster" 
+      path: "pv31"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting32"
+    name: "pv32"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared32"
+      endpoints: "gluster" 
+      path: "pv32"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting33"
+    name: "pv33"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared33"
+      endpoints: "gluster" 
+      path: "pv33"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting34"
+    name: "pv34"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared34"
+      endpoints: "gluster" 
+      path: "pv34"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting35"
+    name: "pv35"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared35"
+      endpoints: "gluster" 
+      path: "pv35"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting36"
+    name: "pv36"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared36"
+      endpoints: "gluster" 
+      path: "pv36"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting37"
+    name: "pv37"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared37"
+      endpoints: "gluster" 
+      path: "pv37"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting38"
+    name: "pv38"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared38"
+      endpoints: "gluster" 
+      path: "pv38"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting39"
+    name: "pv39"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared39"
+      endpoints: "gluster" 
+      path: "pv39"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting40"
+    name: "pv40"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared40"
+      endpoints: "gluster" 
+      path: "pv40"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting41"
+    name: "pv41"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared41"
+      endpoints: "gluster" 
+      path: "pv41"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting42"
+    name: "pv42"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared42"
+      endpoints: "gluster" 
+      path: "pv42"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting43"
+    name: "pv43"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared43"
+      endpoints: "gluster" 
+      path: "pv43"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting44"
+    name: "pv44"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared44"
+      endpoints: "gluster" 
+      path: "pv44"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting45"
+    name: "pv45"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared45"
+      endpoints: "gluster" 
+      path: "pv45"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting46"
+    name: "pv46"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared46"
+      endpoints: "gluster" 
+      path: "pv46"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting47"
+    name: "pv47"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared47"
+      endpoints: "gluster" 
+      path: "pv47"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting48"
+    name: "pv48"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared48"
+      endpoints: "gluster" 
+      path: "pv48"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting49"
+    name: "pv49"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared49"
+      endpoints: "gluster" 
+      path: "pv49"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting50"
+    name: "pv50"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared50"
+      endpoints: "gluster" 
+      path: "pv50"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting51"
+    name: "pv51"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared51"
+      endpoints: "gluster" 
+      path: "pv51"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting52"
+    name: "pv52"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared52"
+      endpoints: "gluster" 
+      path: "pv52"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting53"
+    name: "pv53"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared53"
+      endpoints: "gluster" 
+      path: "pv53"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting54"
+    name: "pv54"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared54"
+      endpoints: "gluster" 
+      path: "pv54"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting55"
+    name: "pv55"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared55"
+      endpoints: "gluster" 
+      path: "pv55"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting56"
+    name: "pv56"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared56"
+      endpoints: "gluster" 
+      path: "pv56"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting57"
+    name: "pv57"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared57"
+      endpoints: "gluster" 
+      path: "pv57"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting58"
+    name: "pv58"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared58"
+      endpoints: "gluster" 
+      path: "pv58"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting59"
+    name: "pv59"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared59"
+      endpoints: "gluster" 
+      path: "pv59"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting60"
+    name: "pv60"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared60"
+      endpoints: "gluster" 
+      path: "pv60"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting61"
+    name: "pv61"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared61"
+      endpoints: "gluster" 
+      path: "pv61"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting62"
+    name: "pv62"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared62"
+      endpoints: "gluster" 
+      path: "pv62"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting63"
+    name: "pv63"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared63"
+      endpoints: "gluster" 
+      path: "pv63"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting64"
+    name: "pv64"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared64"
+      endpoints: "gluster" 
+      path: "pv64"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting65"
+    name: "pv65"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared65"
+      endpoints: "gluster" 
+      path: "pv65"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting66"
+    name: "pv66"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared66"
+      endpoints: "gluster" 
+      path: "pv66"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting67"
+    name: "pv67"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared67"
+      endpoints: "gluster" 
+      path: "pv67"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting68"
+    name: "pv68"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared68"
+      endpoints: "gluster" 
+      path: "pv68"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting69"
+    name: "pv69"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared69"
+      endpoints: "gluster" 
+      path: "pv69"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting70"
+    name: "pv70"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared70"
+      endpoints: "gluster" 
+      path: "pv70"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting71"
+    name: "pv71"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared71"
+      endpoints: "gluster" 
+      path: "pv71"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting72"
+    name: "pv72"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared72"
+      endpoints: "gluster" 
+      path: "pv72"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting73"
+    name: "pv73"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared73"
+      endpoints: "gluster" 
+      path: "pv73"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting74"
+    name: "pv74"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared74"
+      endpoints: "gluster" 
+      path: "pv74"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting75"
+    name: "pv75"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared75"
+      endpoints: "gluster" 
+      path: "pv75"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting76"
+    name: "pv76"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared76"
+      endpoints: "gluster" 
+      path: "pv76"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting77"
+    name: "pv77"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared77"
+      endpoints: "gluster" 
+      path: "pv77"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting78"
+    name: "pv78"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared78"
+      endpoints: "gluster" 
+      path: "pv78"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting79"
+    name: "pv79"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared79"
+      endpoints: "gluster" 
+      path: "pv79"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting80"
+    name: "pv80"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared80"
+      endpoints: "gluster" 
+      path: "pv80"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting81"
+    name: "pv81"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared81"
+      endpoints: "gluster" 
+      path: "pv81"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting82"
+    name: "pv82"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared82"
+      endpoints: "gluster" 
+      path: "pv82"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting83"
+    name: "pv83"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared83"
+      endpoints: "gluster" 
+      path: "pv83"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting84"
+    name: "pv84"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared84"
+      endpoints: "gluster" 
+      path: "pv84"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting85"
+    name: "pv85"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared85"
+      endpoints: "gluster" 
+      path: "pv85"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting86"
+    name: "pv86"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared86"
+      endpoints: "gluster" 
+      path: "pv86"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting87"
+    name: "pv87"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared87"
+      endpoints: "gluster" 
+      path: "pv87"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting88"
+    name: "pv88"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared88"
+      endpoints: "gluster" 
+      path: "pv88"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting89"
+    name: "pv89"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared89"
+      endpoints: "gluster" 
+      path: "pv89"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting90"
+    name: "pv90"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared90"
+      endpoints: "gluster" 
+      path: "pv90"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting91"
+    name: "pv91"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared91"
+      endpoints: "gluster" 
+      path: "pv91"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting92"
+    name: "pv92"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared92"
+      endpoints: "gluster" 
+      path: "pv92"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting93"
+    name: "pv93"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared93"
+      endpoints: "gluster" 
+      path: "pv93"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting94"
+    name: "pv94"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared94"
+      endpoints: "gluster" 
+      path: "pv94"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting95"
+    name: "pv95"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared95"
+      endpoints: "gluster" 
+      path: "pv95"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting96"
+    name: "pv96"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared96"
+      endpoints: "gluster" 
+      path: "pv96"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting97"
+    name: "pv97"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared97"
+      endpoints: "gluster" 
+      path: "pv97"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting98"
+    name: "pv98"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared98"
+      endpoints: "gluster" 
+      path: "pv98"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting99"
+    name: "pv99"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared99"
+      endpoints: "gluster" 
+      path: "pv99"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
 - apiVersion: "v1"
   kind: "PersistentVolume"
   metadata:
-    name: "shared-webhosting100"
+    name: "pv100"
   spec:
     capacity:
-      storage: "1600Gi" 
+      storage: "1000Gi" 
     accessModes:
       - "ReadWriteMany"
     glusterfs: 
-      endpoints: "shared-webhosting" 
-      path: "shared100"
+      endpoints: "gluster" 
+      path: "pv100"
       readOnly: false
     persistentVolumeReclaimPolicy: "Recycle"
