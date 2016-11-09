@@ -5,9 +5,9 @@ metadata:
   name: gluster
 subsets:
 - addresses:
-  - ip: 192.168.0.110
-  - ip: 192.168.0.171
-  - ip: 192.168.0.5
+  - ip: 10.203.30.6
+  - ip: 10.203.30.7
+  - ip: 10.203.30.8
   ports:
   - port: 1
     protocol: TCP
