@@ -1,13 +1,23 @@
 apiVersion: v1
-kind: Endpoints
-metadata:
-  creationTimestamp: null
-  name: gluster
-subsets:
-- addresses:
-  - ip: 10.203.30.6
-  - ip: 10.203.30.7
-  - ip: 10.203.30.8
-  ports:
-  - port: 1
-    protocol: TCP
+kind: List
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: gluster
+  spec:
+    ports:
+    - port: 1
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    creationTimestamp: null
+    name: gluster
+  subsets:
+  - addresses:
+    - ip: 10.203.30.9
+    - ip: 10.203.30.7
+    - ip: 10.203.30.8
+    ports:
+    - port: 1
+      protocol: TCP
