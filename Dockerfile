@@ -1,12 +1,19 @@
-FROM ubuntu:14.04
+ARG IMAGE
+FROM ${IMAGE}
 
-MAINTAINER Samuel Terburg <samuel.terburg@panther-it.nl>
+LABEL MAINTAINER="github@angelnu.com"
+LABEL SRC="https://github.com/angelnu/kubernetes-glusterfs-server"
 
 RUN apt-get update && \
-    apt-get install -y python-software-properties software-properties-common
-RUN add-apt-repository -y ppa:gluster/glusterfs-3.5 && \
+    apt-get install software-properties-common -y && \
+    add-apt-repository ppa:gluster/glusterfs-3.10 -y && \
     apt-get update && \
-    apt-get install -y glusterfs-server supervisor openssh-server dnsutils sshpass
+    apt-get install -y net-tools           \
+                       glusterfs-server    \
+                       supervisor          \
+                       openssh-server      \
+                       dnsutils sshpass && \
+    apt-get -y clean all
 
 ENV ROOT_PASSWORD **ChangeMe**
 
