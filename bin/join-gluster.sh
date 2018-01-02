@@ -15,38 +15,49 @@ function check_if_already_joined {
 }
 
 echo "=> Waiting for glusterd to start..."
-sleep 10
+until [ -e /var/run/glusterd.pid ]; do
+  sleep 1
+done
+echo "... glusterd ready!"
 
-check_if_already_joined
 
 # Join the cluster - choose a suitable container
 ALIVE=0
-for PEER in ${GLUSTER_PEERS}; do
-   # Skip myself
-   if [ "${MY_IP}" == "${PEER}" ]; then
-      continue
-   fi
-   echo "=> Checking if I can reach gluster container ${PEER} ..."
-   if sshpass -p ${ROOT_PASSWORD} ssh ${SSH_OPTS} ${SSH_USER}@${PEER} "hostname" >/dev/null 2>&1; then
-      echo "=> Gluster container ${PEER} is alive"
-      ALIVE=1
-      break
-   else
-      echo "*** Could not reach gluster container ${PEER} ..."
-   fi 
+while [ ${ALIVE} -eq 0 ]; do
+
+  #Already joined?
+  check_if_already_joined
+
+  for PEER in `dig +short ${SERVICE_NAME}`; do
+
+     # Skip myself
+     if [ "${MY_IP}" == "${PEER}" ]; then
+        continue
+     fi
+     echo "=> Checking if I can reach gluster container ${PEER} ..."
+     if sshpass -p ${ROOT_PASSWORD} ssh ${SSH_OPTS} ${SSH_USER}@${PEER} "hostname" >/dev/null 2>&1; then
+        echo "=> Gluster container ${PEER} is alive"
+        ALIVE=1
+        break
+     else
+        echo "*** Could not reach gluster container ${PEER} ..."
+     fi
+  done
+
+  if [ ${ALIVE} -eq 0 ]; then
+     echo "Could not reach any GlusterFS container from this list: ${GLUSTER_PEERS}"
+     echo "I am either the first one or ${PEER} is not completely up -> I will keep trying..."
+     sleep 1
+  fi
 done
 
-if [ ${ALIVE} -eq 0 ]; then
-   echo "Could not reach any GlusterFS container from this list: ${GLUSTER_PEERS} - Maybe I am the first node in the cluster? Well, I keep waiting for new containers to join me ..."
-   exit 0
-fi
-
 # If PEER has requested me to join him, just wait for a while
+# This happens when we are bootstrapping the cluster
 SEMAPHORE_FILE=/tmp/adding-gluster-node.${PEER}
 if [ -e ${SEMAPHORE_FILE} ]; then
    echo "=> Seems like peer ${PEER} has just requested me to join him"
    echo "=> So I'm waiting for 20 seconds to finish it..."
-   sleep 60
+   sleep 20
 fi
 check_if_already_joined
 
@@ -56,4 +67,7 @@ if [ $? -eq 0 ]; then
    echo "=> Successfully joined cluster with container ${PEER} ..."
 else
    echo "=> Error joining cluster with container ${PEER} ..."
+   check_if_already_joined
+   echo "=> Error joining cluster with container ${PEER} - terminating ..."
+   kill -s SIGINT 1
 fi

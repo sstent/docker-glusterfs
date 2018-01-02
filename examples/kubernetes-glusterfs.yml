@@ -72,7 +72,7 @@ spec:
     port: 2049
     targetPort: 2049
   selector:
-    component: glusterfs-storage
+    app: glusterfs-storage
 
 
 ---
@@ -88,6 +88,8 @@ spec:
   selector:
     matchLabels:
       app: glusterfs-storage
+  updateStrategy:
+    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -110,12 +112,15 @@ spec:
         - containerPort: 111
           protocol: UDP
         env:
-        - name: GLUSTER_BRICK_PATH
+        - name: GLUSTER_VOLUMES
+          value: "casa ccu2 iobroker docker-registry"
+        - name: GLUSTER_VOL_OPTS
           value:
-        - name: GLUSTER_VOL
-          value: shared0
+            "performance.write-behind-window-size 10MB \
+            performance.cache-refresh-timeout 60 \
+            cluster.server-quorum-ratio 51%"
         - name: GLUSTER_BRICK_PATH
-          value: /gluster_volume
+          value: /bricks
         - name: SERVICE_NAME
           value: glusterfs-storage.default.svc.cluster.local
         - name: ROOT_PASSWORD
@@ -125,8 +130,8 @@ spec:
         - name: SSH_PORT
           value: "22"
         volumeMounts:
-          - name: local0
-            mountPath: /gluster_volume
+          - name: bricks
+            mountPath: /bricks
         securityContext:
           privileged: true
           runAsUser: 0
@@ -134,7 +139,7 @@ spec:
             add:
             - SYS_ADMIN
       volumes:
-        - name: local0
+        - name: bricks
           hostPath:
-            path: "/media/usb_data/gluster"
-            type: Directory
+            path: "/media/data/gluster"
+            type: DirectoryOrCreate
