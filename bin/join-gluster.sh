@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+trap '(echo "Unexpected error";kill -s SIGINT 1; exit 1' ERR
 
 [ "$DEBUG" == "1" ] && set -x
 
@@ -62,8 +62,7 @@ fi
 check_if_already_joined
 
 echo "=> Joining cluster with container ${PEER} ..."
-sshpass -p ${ROOT_PASSWORD} ssh ${SSH_OPTS} ${SSH_USER}@${PEER} "add-gluster-peer.sh ${MY_IP}"
-if [ $? -eq 0 ]; then
+if sshpass -p ${ROOT_PASSWORD} ssh ${SSH_OPTS} ${SSH_USER}@${PEER} "add-gluster-peer.sh ${MY_IP}"; then
    echo "=> Successfully joined cluster with container ${PEER} ..."
 else
    echo "=> Error joining cluster with container ${PEER} ..."

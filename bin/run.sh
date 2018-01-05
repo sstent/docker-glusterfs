@@ -1,6 +1,5 @@
 #!/bin/bash
-
-set -e
+trap 'echo "Unexpected error";exit 1' ERR
 
 export SSH_OPTS="-p ${SSH_PORT} -o ConnectTimeout=20 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 export GLUSTER_CONF_FLAG=/etc/gluster.env
@@ -34,6 +33,7 @@ echo "SSH_USER=\"${SSH_USER}\"" >> ${GLUSTER_CONF_FLAG}
 echo "SSH_OPTS=\"${SSH_OPTS}\"" >> ${GLUSTER_CONF_FLAG}
 echo "GLUSTER_VOLUMES=\"${GLUSTER_VOLUMES}\"" >> ${GLUSTER_CONF_FLAG}
 echo "GLUSTER_VOL_OPTS=\"${GLUSTER_VOL_OPTS}\"" >> ${GLUSTER_CONF_FLAG}
+echo "GLUSTER_ALL_VOLS_OPTS=\"${GLUSTER_ALL_VOLS_OPTS}\"" >> ${GLUSTER_CONF_FLAG}
 echo "GLUSTER_BRICK_PATH=\"${GLUSTER_BRICK_PATH}\"" >> ${GLUSTER_CONF_FLAG}
 echo "DEBUG=\"${DEBUG}\"" >> ${GLUSTER_CONF_FLAG}
 echo "MY_IP=\"${MY_IP}\"" >> ${GLUSTER_CONF_FLAG}

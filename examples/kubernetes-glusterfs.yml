@@ -116,17 +116,18 @@ spec:
           value: "casa ccu2 iobroker docker-registry"
         - name: GLUSTER_VOL_OPTS
           value:
-            "performance.write-behind-window-size 10MB \
-            performance.cache-refresh-timeout 60 \
-            cluster.server-quorum-ratio 51%"
+            performance.write-behind-window-size 10MB
+            performance.cache-refresh-timeout 60
+        - name: GLUSTER_ALL_VOLS_OPTS
+          value: cluster.server-quorum-ratio 51%
         - name: GLUSTER_BRICK_PATH
           value: /bricks
         - name: SERVICE_NAME
           value: glusterfs-storage.default.svc.cluster.local
         - name: ROOT_PASSWORD
           value: container_root_password
-        - name: DEBUG
-          value: "1"
+        #- name: DEBUG
+        #  value: "1"
         - name: SSH_PORT
           value: "22"
         volumeMounts:

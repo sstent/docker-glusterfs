@@ -19,6 +19,7 @@ ENV ROOT_PASSWORD="**ChangeMe**" \
     SSH_USER=root \
     GLUSTER_VOLUMES=vol \
     GLUSTER_VOL_OPTS="" \
+    GLUSTER_ALL_VOLS_OPTS="" \
     GLUSTER_BRICK_PATH=/gluster_volume \
     SERVICE_NAME=gluster \
     DEBUG=0
