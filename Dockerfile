@@ -31,4 +31,4 @@ RUN mkdir -p /var/run/sshd /root/.ssh /var/log/supervisor /usr/local/bin
 ADD ./bin /usr/local/bin
 ADD ./etc/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-CMD ["/usr/local/bin/run.sh"]
+ENTRYPOINT ["/usr/local/bin/run.sh"]

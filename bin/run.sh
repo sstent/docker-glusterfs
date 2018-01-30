@@ -6,6 +6,12 @@ export GLUSTER_CONF_FLAG=/etc/gluster.env
 
 [ "$DEBUG" == "1" ] && set -x && set +e
 
+if [ n$1 == nbash ]; then
+  echo "Starting shell"
+  $*
+  exit $?
+fi
+
 if [ "${ROOT_PASSWORD}" == "**ChangeMe**" -o -z "${ROOT_PASSWORD}" ]; then
    echo "*** ERROR: you need to define ROOT_PASSWORD environment variable - Exiting ..."
    exit 1
