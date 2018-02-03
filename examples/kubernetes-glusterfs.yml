@@ -1,10 +1,10 @@
 ---
 # ------------------- ServiceAccount ------------------- #
 
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: glusterfs
+#apiVersion: v1
+#kind: ServiceAccount
+#metadata:
+#  name: glusterfs
 
 
 # ---
@@ -37,6 +37,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: glusterfs-storage
+  namespace: kube-system
 spec:
   clusterIP: None
   ports:
@@ -74,7 +75,62 @@ spec:
   selector:
     app: glusterfs-storage
 
-
+---
+#Also expose as LB with a fix cluster IP so we can use it from other namespaces
+kind: Service
+apiVersion: v1
+metadata:
+  name: glusterfs-storage-lb
+  namespace: kube-system
+spec:
+  clusterIP: 10.111.111.111
+  ports:
+  - name: glusterfs-api
+    port: 24007
+    targetPort: 24007
+  - name: glusterfs-infiniband
+    port: 24008
+    targetPort: 24008
+  - name: glusterfs-brick0
+    port: 49152
+    targetPort: 49152
+  selector:
+    app: glusterfs-storage
+---
+#For each additional namespace the endpoints and service must be defined
+# - add default namespace
+kind: "Endpoints"
+apiVersion: "v1"
+metadata:
+  name: glusterfs-storage
+subsets:
+  - addresses:
+    - ip: "10.111.111.111"
+    ports:
+    - name: glusterfs-api
+      port: 24007
+    - name: glusterfs-infiniband
+      port: 24008
+    - name: glusterfs-brick0
+      port: 49152
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: glusterfs-storage
+spec:
+  clusterIP: None
+  ports:
+  - name: glusterfs-api
+    port: 24007
+    targetPort: 24007
+  - name: glusterfs-infiniband
+    port: 24008
+    targetPort: 24008
+  - name: glusterfs-brick0
+    port: 49152
+    targetPort: 49152
+  selector: {}
 ---
 # ------------------- daemonset ------------------- #
 
@@ -84,6 +140,7 @@ metadata:
   labels:
     app: glusterfs-storage
   name: glusterfs-storage
+  namespace: kube-system
 spec:
   selector:
     matchLabels:
@@ -94,8 +151,9 @@ spec:
     metadata:
       labels:
         app: glusterfs-storage
+      namespace: kube-system
     spec:
-      serviceAccount: glusterfs
+      #serviceAccount: glusterfs
       containers:
       - name: glusterfs-server
         image: angelnu/glusterfs-arm:latest
@@ -113,7 +171,7 @@ spec:
           protocol: UDP
         env:
         - name: GLUSTER_VOLUMES
-          value: "casa ccu2 iobroker docker-registry"
+          value: "casa ccu2 iobroker docker-registry grafana"
         - name: GLUSTER_VOL_OPTS
           value:
             performance.write-behind-window-size 10MB
@@ -123,7 +181,7 @@ spec:
         - name: GLUSTER_BRICK_PATH
           value: /bricks
         - name: SERVICE_NAME
-          value: glusterfs-storage.default.svc.cluster.local
+          value: glusterfs-storage.kube-system.svc.cluster.local
         - name: ROOT_PASSWORD
           value: container_root_password
         #- name: DEBUG
