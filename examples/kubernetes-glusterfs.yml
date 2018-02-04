@@ -171,7 +171,7 @@ spec:
           protocol: UDP
         env:
         - name: GLUSTER_VOLUMES
-          value: "casa ccu2 iobroker docker-registry grafana"
+          value: "casa ccu2 iobroker influxdb grafana"
         - name: GLUSTER_VOL_OPTS
           value:
             performance.write-behind-window-size 10MB
