@@ -132,28 +132,37 @@ spec:
     targetPort: 49152
   selector: {}
 ---
-# ------------------- daemonset ------------------- #
-
-apiVersion: apps/v1
-kind: DaemonSet
+# ------------------- StatefulSet ------------------- #
+apiVersion: apps/v1beta1
+kind: StatefulSet
 metadata:
+  namespace: kube-system
   labels:
     app: glusterfs-storage
   name: glusterfs-storage
-  namespace: kube-system
 spec:
-  selector:
-    matchLabels:
-      app: glusterfs-storage
+  serviceName: glusterfs-storage
+  # changing replicas value will require a manual etcdctl member remove/add
+  # command (remove before decreasing and add after increasing)
+  replicas: 3
   updateStrategy:
     type: RollingUpdate
   template:
     metadata:
+      name: "glusterfs-storage"
       labels:
-        app: glusterfs-storage
-      namespace: kube-system
+        app: "glusterfs-storage"
     spec:
-      #serviceAccount: glusterfs
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - glusterfs-storage
+            topologyKey: "kubernetes.io/hostname"
       containers:
       - name: glusterfs-server
         image: angelnu/glusterfs-arm:latest

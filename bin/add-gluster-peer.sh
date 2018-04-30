@@ -3,7 +3,7 @@
 # Exit status = 0 means the peer was successfully joined
 # Exit status = 1 means there was an error while joining the peer to the cluster
 
-trap 'echo "Unexpected error";exit 1' ERR
+trap 'echo "Unexpected error";rm -f /tmp/adding-gluster-node; exit 1' ERR
 
 PEER=$1
 
@@ -13,7 +13,7 @@ if [ -z "${PEER}" ]; then
 fi
 
 GLUSTER_CONF_FLAG=/etc/gluster.env
-SEMAPHORE_FILE=/tmp/adding-gluster-node.${PEER}
+SEMAPHORE_FILE=/tmp/adding-gluster-node
 SEMAPHORE_TIMEOUT=120
 source ${GLUSTER_CONF_FLAG}
 
@@ -38,6 +38,11 @@ else
    exit 1
 fi
 
+if gluster peer status | grep ${PEER} &>/dev/null; then
+  echo "peer already added -> end"
+  exit 0
+fi
+
 # Gluster does not like to add two nodes at once
 for ((SEMAPHORE_RETRY=0; SEMAPHORE_RETRY<SEMAPHORE_TIMEOUT; SEMAPHORE_RETRY++)); do
    if [ ! -e ${SEMAPHORE_FILE} ]; then
@@ -52,8 +57,8 @@ if [ -e ${SEMAPHORE_FILE} ]; then
    echo "and after waiting ${SEMAPHORE_TIMEOUT} seconds I could not join peer ${PEER}, giving it up ..."
    exit 1
 fi
-touch ${SEMAPHORE_FILE}
 
+echo -n ${PEER}>${SEMAPHORE_FILE}
 for volume in $GLUSTER_VOLUMES; do
 
 	# Check how many peers are already joined in the cluster - needed to add a replica
