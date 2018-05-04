@@ -1,9 +1,9 @@
 # GlusterFS for docker
 
-[![Downloads](https://img.shields.io/docker/pulls/angelnu/gluster.svg)](https://hub.docker.com/r/angelnu/gluster/)
-[![Build Status](https://travis-ci.org/angelnu/docker-gluster.svg?branch=master)](https://travis-ci.org/angelnu/docker-gluster)
+[![Downloads](https://img.shields.io/docker/pulls/angelnu/glusterfs.svg)](https://hub.docker.com/r/angelnu/glusterfs/)
+[![Build Status](https://travis-ci.org/angelnu/docker-glusterfs.svg?branch=master)](https://travis-ci.org/angelnu/docker-glusterfs)
 
-GlusterFS Server with peer-discovery for [mutiple archs](https://hub.docker.com/r/angelnu/gluster/tags):
+GlusterFS Server with peer-discovery for [mutiple archs](https://hub.docker.com/r/angelnu/glusterfs/tags):
 - arm
 - arm64
 - amd64
