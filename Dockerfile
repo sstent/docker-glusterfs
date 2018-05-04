@@ -1,4 +1,10 @@
-FROM ubuntu
+ARG BASE=node:8-slim
+FROM $BASE
+
+ARG arch=arm
+ENV ARCH=$arch
+
+COPY qemu/qemu-$ARCH-static* /usr/bin/
 
 LABEL MAINTAINER="github@angelnu.com"
 LABEL SRC="https://github.com/angelnu/kubernetes-glusterfs-server"

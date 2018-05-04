@@ -1,5 +1,12 @@
-# kubernetes-glusterfs-server
-GlusterFS Server with peer-discovery.
+# gluster for docker
+
+[![Downloads](https://img.shields.io/docker/pulls/angelnu/gluster.svg)](https://hub.docker.com/r/angelnu/gluster/)
+[![Build Status](https://travis-ci.org/angelnu/docker-gluster.svg?branch=master)](https://travis-ci.org/angelnu/docker-gluster)
+
+GlusterFS Server with peer-discovery for [mutiple archs](https://hub.docker.com/r/angelnu/gluster/tags):
+- arm
+- arm64
+- amd64
 
 
 Compatible
@@ -42,4 +49,3 @@ Author
   * Kubernetes compatibility
   * Documentation
   * Examples
-
