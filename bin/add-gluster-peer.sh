@@ -18,7 +18,7 @@ SEMAPHORE_TIMEOUT=120
 source ${GLUSTER_CONF_FLAG}
 
 function echo() {
-   builtin echo $(basename $0): [From container ${MY_IP}] $1
+   builtin echo $(basename $0): [From container ${MY_NAME}] $1
 }
 
 function detach() {
@@ -39,8 +39,10 @@ else
 fi
 
 if gluster peer status | grep ${PEER} &>/dev/null; then
-  echo "peer already added -> end"
-  exit 0
+  if echo "${PEER_STATUS}" | grep "Peer in Cluster"; then
+    echo "peer already added -> end"
+    exit 0
+  fi
 fi
 
 # Gluster does not like to add two nodes at once
@@ -58,38 +60,44 @@ if [ -e ${SEMAPHORE_FILE} ]; then
    exit 1
 fi
 
+#Lock
 echo -n ${PEER}>${SEMAPHORE_FILE}
+
+
+# Check if peer container is already part of the cluster
+PEER_STATUS=`gluster peer status | grep -A2 "Hostname: ${PEER}" | grep State: | awk -F: '{print $2}'`
+echo "Peer status: $PEER_STATUS"
+if echo "${PEER_STATUS}" | grep "Peer Rejected"; then
+  for volume in $GLUSTER_VOLUMES; do
+    if gluster volume info ${volume} | grep ": ${PEER}:${GLUSTER_BRICK_PATH}/${volume}$" >/dev/null; then
+      echo "=> Peer container ${PEER} was part of volume ${volume} but must be dropped -> removing brick ..."
+      NUMBER_OF_REPLICAS=`gluster volume info ${volume} | grep "Number of Bricks:" | awk '{print $6}'`
+      gluster --mode=script volume remove-brick ${volume} replica $((NUMBER_OF_REPLICAS-1)) ${PEER}:${GLUSTER_BRICK_PATH}/${volume} force
+      sleep 1
+    fi
+  done
+  echo "Detaching peer before adding it again: ${PEER}"
+  gluster peer detach ${PEER} force
+  sleep 5
+fi
+
+# Probe the peer
+PEER_STATUS=`gluster peer status | grep -A2 "Hostname: ${PEER}" | grep State: | awk -F: '{print $2}'`
+if ! echo "${PEER_STATUS}" | grep "Peer in Cluster" >/dev/null; then
+    # Peer probe
+    echo "=> Probing peer ${PEER} ..."
+    gluster peer probe ${PEER}
+    sleep 5
+fi
+
 for volume in $GLUSTER_VOLUMES; do
 
-	# Check how many peers are already joined in the cluster - needed to add a replica
-	NUMBER_OF_REPLICAS=`gluster volume info ${volume} | grep "Number of Bricks:" | awk '{print $6}'`
+  echo "PROCESING VOLUME $volume"
 
-	# Check if peer container is already part of the cluster
-	PEER_STATUS=`gluster peer status | grep -A2 "Hostname: ${PEER}$" | grep State: | awk -F: '{print $2}'`
-	if echo "${PEER_STATUS}" | grep "Peer Rejected"; then
-	   if gluster volume info ${volume} | grep ": ${PEER}:${GLUSTER_BRICK_PATH}/${volume}$" >/dev/null; then
-	      echo "=> Peer container ${PEER} was part of this cluster but must be dropped now ..."
-	      gluster --mode=script volume remove-brick ${volume} replica $((NUMBER_OF_REPLICAS-1)) ${PEER}:${GLUSTER_BRICK_PATH}/${volume} force
-	      sleep 5
-	   fi
-	   gluster peer detach ${PEER} force
-	   sleep 5
-	fi
-
-	# Probe the peer
-	if ! echo "${PEER_STATUS}" | grep "Peer in Cluster" >/dev/null; then
-	    # Peer probe
-	    echo "=> Probing peer ${PEER} ..."
-	    gluster peer probe ${PEER}
-	    sleep 5
-	fi
-
-	# Check how many peers are already joined in the cluster - needed to add a replica
-	NUMBER_OF_REPLICAS=`gluster volume info ${volume} | grep "Number of Bricks:" | awk '{print $6}'`
 	# Create the volume
 	if ! gluster volume list | grep "^${volume}$" >/dev/null; then
 	   echo "=> Creating GlusterFS volume ${volume}..."
-	   gluster volume create ${volume} replica 2 ${MY_IP}:${GLUSTER_BRICK_PATH}/${volume} ${PEER}:${GLUSTER_BRICK_PATH}/${volume} force || detach
+	   gluster volume create ${volume} replica 2 ${MY_NAME}:${GLUSTER_BRICK_PATH}/${volume} ${PEER}:${GLUSTER_BRICK_PATH}/${volume} force || detach
      echo "=> Setting volume options: ${GLUSTER_VOL_OPTS}"
      gluster volume set ${volume} ${GLUSTER_VOL_OPTS}
      echo "=> Setting global volume options: ${GLUSTER_ALL_VOLS_OPTS}"
@@ -104,6 +112,8 @@ for volume in $GLUSTER_VOLUMES; do
 	   sleep 1
 	fi
 
+  # Check how many peers are already joined in the cluster - needed to add a replica
+	NUMBER_OF_REPLICAS=`gluster volume info ${volume} | grep "Number of Bricks:" | awk '{print $6}'`
 	if ! gluster volume info ${volume} | grep ": ${PEER}:${GLUSTER_BRICK_PATH}/${volume}$" >/dev/null; then
 	   echo "=> Adding brick ${PEER}:${GLUSTER_BRICK_PATH}/${volume} to the cluster (replica=$((NUMBER_OF_REPLICAS+1)))..."
 	   gluster volume add-brick ${volume} replica $((NUMBER_OF_REPLICAS+1)) ${PEER}:${GLUSTER_BRICK_PATH}/${volume} force || detach

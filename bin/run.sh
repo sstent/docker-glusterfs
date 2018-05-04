@@ -23,8 +23,8 @@ if [ "${SERVICE_NAME}" == "**ChangeMe**" -o -z "${SERVICE_NAME}" ]; then
 fi
 
 #Get my IP
-#export MY_IP=`ip addr show scope global |grep inet | tail -1 | awk '{print $2}' | awk -F\/ '{print $1}'`
-export MY_IP="$(hostname).${SERVICE_NAME}"
+export MY_IP=`ip addr show scope global |grep inet | tail -1 | awk '{print $2}' | awk -F\/ '{print $1}'`
+export MY_NAME="$(hostname).${SERVICE_NAME}"
 if [ -z "${MY_IP}" ]; then
    echo "*** ERROR: Could not determine this container's IP - Exiting ..."
    exit 1
@@ -44,6 +44,7 @@ echo "GLUSTER_ALL_VOLS_OPTS=\"${GLUSTER_ALL_VOLS_OPTS}\"" >> ${GLUSTER_CONF_FLAG
 echo "GLUSTER_BRICK_PATH=\"${GLUSTER_BRICK_PATH}\"" >> ${GLUSTER_CONF_FLAG}
 echo "DEBUG=\"${DEBUG}\"" >> ${GLUSTER_CONF_FLAG}
 echo "MY_IP=\"${MY_IP}\"" >> ${GLUSTER_CONF_FLAG}
+echo "MY_NAME=\"${MY_NAME}\"" >> ${GLUSTER_CONF_FLAG}
 echo "SERVICE_NAME=\"${SERVICE_NAME}\"" >> ${GLUSTER_CONF_FLAG}
 
 perl -p -i -e "s/^Port .*/Port ${SSH_PORT}/g" /etc/ssh/sshd_config
