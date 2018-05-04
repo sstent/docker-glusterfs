@@ -11,8 +11,7 @@ LABEL SRC="https://github.com/angelnu/kubernetes-glusterfs-server"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN rm /dev/random && ln -sf /dev/urandom /dev/random && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install software-properties-common -y && \
     add-apt-repository ppa:gluster/glusterfs-3.10 -y && \
     apt-get update && \
