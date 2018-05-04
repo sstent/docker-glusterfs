@@ -34,7 +34,7 @@ spec:
         beta.kubernetes.io/arch: arm
       containers:
       - name: glusterfs-server
-        image: angelnu/glusterfs-arm:latest
+        image: angelnu/glusterfs:latest
         ports:
         - containerPort: 22
         - containerPort: 24007

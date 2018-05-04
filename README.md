@@ -1,4 +1,4 @@
-# gluster for docker
+# GlusterFS for docker
 
 [![Downloads](https://img.shields.io/docker/pulls/angelnu/gluster.svg)](https://hub.docker.com/r/angelnu/gluster/)
 [![Build Status](https://travis-ci.org/angelnu/docker-gluster.svg?branch=master)](https://travis-ci.org/angelnu/docker-gluster)
