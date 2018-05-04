@@ -9,6 +9,8 @@ COPY qemu/qemu-$ARCH-static* /usr/bin/
 LABEL MAINTAINER="github@angelnu.com"
 LABEL SRC="https://github.com/angelnu/kubernetes-glusterfs-server"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && \
     apt-get install software-properties-common -y && \
     add-apt-repository ppa:gluster/glusterfs-3.10 -y && \
