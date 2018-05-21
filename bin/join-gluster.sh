@@ -10,6 +10,7 @@ function check_if_already_joined {
    if [ ${NUMBER_OF_PEERS} -ne 0 ]; then
       # This container is already part of the cluster
       echo "=> This container is already joined with nodes ${GLUSTER_PEERS}, skipping joining ..."
+      touch /IamReady
       exit 0
    fi
 }
@@ -47,6 +48,7 @@ while [ ${ALIVE} -eq 0 ]; do
   if [ ${ALIVE} -eq 0 ]; then
      echo "Could not reach any GlusterFS container from this list: ${GLUSTER_PEERS}"
      echo "I am either the first one or ${PEER} is not completely up -> I will keep trying..."
+     touch /IamReady
      sleep 1
   fi
 done
@@ -64,6 +66,7 @@ check_if_already_joined
 echo "=> Joining cluster with container ${PEER} ..."
 if sshpass -p ${ROOT_PASSWORD} ssh ${SSH_OPTS} ${SSH_USER}@${PEER} "add-gluster-peer.sh ${MY_NAME}"; then
    echo "=> Successfully joined cluster with container ${PEER} ..."
+   touch /IamReady
 else
    echo "=> Error joining cluster with container ${PEER} ..."
    check_if_already_joined
