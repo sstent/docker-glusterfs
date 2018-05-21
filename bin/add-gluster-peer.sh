@@ -98,10 +98,14 @@ for volume in $GLUSTER_VOLUMES; do
 	if ! gluster volume list | grep "^${volume}$" >/dev/null; then
 	   echo "=> Creating GlusterFS volume ${volume}..."
 	   gluster volume create ${volume} replica 2 ${MY_NAME}:${GLUSTER_BRICK_PATH}/${volume} ${PEER}:${GLUSTER_BRICK_PATH}/${volume} force || detach
-     echo "=> Setting volume options: ${GLUSTER_VOL_OPTS}"
-     gluster volume set ${volume} ${GLUSTER_VOL_OPTS}
-     echo "=> Setting global volume options: ${GLUSTER_ALL_VOLS_OPTS}"
-     gluster volume set all ${GLUSTER_ALL_VOLS_OPTS}
+     if [ -n ${GLUSTER_VOL_OPTS} ]; then
+       echo "=> Setting volume options: ${GLUSTER_VOL_OPTS}"
+       gluster volume set ${volume} ${GLUSTER_VOL_OPTS}
+     fi
+     if [ -n ${GLUSTER_ALL_VOLS_OPTS} ]; then
+       echo "=> Setting global volume options: ${GLUSTER_ALL_VOLS_OPTS}"
+       gluster volume set all ${GLUSTER_ALL_VOLS_OPTS}
+     fi
      sleep 1
 	fi
 
