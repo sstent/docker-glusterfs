@@ -6,11 +6,20 @@
 trap 'echo "Unexpected error";rm -f /tmp/adding-gluster-node; exit 1' ERR
 
 PEER=$1
+PEER_IP=$2
 
 if [ -z "${PEER}" ]; then
-   echo "=> ERROR: I was supposed to add a new gluster peer to the cluster but no IP was specified, doing nothing ..."
+   echo "=> ERROR: I was supposed to add a new gluster peer to the cluster but no peer name was specified, doing nothing ..."
    exit 1
 fi
+
+if [ -z "${PEER_IP}" ]; then
+   echo "=> ERROR: I was supposed to add a new gluster peer to the cluster but no peer IP was specified, doing nothing ..."
+   exit 1
+fi
+
+#Since the remote peer is not ready we need to use /etc/hosts to resolve the IP
+echo "$PEER_IP $PEER">>/etc/hosts
 
 GLUSTER_CONF_FLAG=/etc/gluster.env
 SEMAPHORE_FILE=/tmp/adding-gluster-node
@@ -30,11 +39,11 @@ function detach() {
 
 [ "$DEBUG" == "1" ] && set -x && set +e
 
-echo "=> Checking if I can reach gluster container ${PEER} and IP `dig +short ${PEER}`..."
+echo "=> Checking if I can reach gluster container ${PEER} and IP $PEER_IP ..."
 if sshpass -p ${ROOT_PASSWORD} ssh ${SSH_OPTS} ${SSH_USER}@${PEER} "hostname" >/dev/null 2>&1; then
    echo "=> Gluster container ${PEER} is alive"
 else
-   echo "*** Could not reach gluster master container ${PEER} - exiting ..."
+   echo "*** Could not reach gluster container ${PEER} - exiting ..."
    exit 1
 fi
 
