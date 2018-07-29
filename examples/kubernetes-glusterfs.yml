@@ -34,7 +34,22 @@ spec:
         beta.kubernetes.io/arch: arm
       containers:
       - name: glusterfs-server
-        image: angelnu/glusterfs:latest
+        image: angelnu/glusterfs:latest-arm
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "300Mi"
+            cpu: "20m"
+          limits:
+            #memory: "128Mi"
+            #cpu: "500m"
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /IamReady
+          failureThreshold: 60
+          periodSeconds: 5
         ports:
         - containerPort: 22
         - containerPort: 24007
@@ -45,15 +60,17 @@ spec:
         - containerPort: 38467
         - containerPort: 2049
         - containerPort: 111
-        - containerPort: 111
           protocol: UDP
         env:
+        - name: dummy
+          value: do_update_2
         - name: GLUSTER_VOLUMES
           value: "casa ccu2 iobroker influxdb grafana"
         - name: GLUSTER_VOL_OPTS
           value:
-            performance.write-behind-window-size 10MB
-            performance.cache-refresh-timeout 60
+            cluster.quorum-type auto
+        #    performance.write-behind-window-size 10MB
+        #    performance.cache-refresh-timeout 60
         - name: GLUSTER_ALL_VOLS_OPTS
           value: cluster.server-quorum-ratio 51%
         - name: GLUSTER_BRICK_PATH
@@ -80,6 +97,79 @@ spec:
           hostPath:
             path: "/media/data/gluster"
             type: DirectoryOrCreate
+
+---
+# ------------------- Deployment ------------------- #
+
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  namespace: kube-system
+  labels:
+    app: glusterfs-checker
+  name: glusterfs-checker
+spec:
+  serviceName: glusterfs-checker
+  # changing replicas value will require a manual etcdctl member remove/add
+  # command (remove before decreasing and add after increasing)
+  replicas: 1
+  template:
+    metadata:
+      namespace: kube-system
+      labels:
+        app: glusterfs-checker
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: glusterfs-check
+        image: alpine
+        imagePullPolicy: Always
+        command:
+        - "/bin/sh"
+        - "-ce"
+        - |
+          apk add --no-cache rsync
+          while [ 1 ]; do
+            date
+            if [ -f /glusterfs/stop ]; then
+              echo "Skipping syncing /glusterfs to /glusterfs-copy because /glusterfs/stop exists"
+            else
+              echo "Syncing /glusterfs to /glusterfs-copy because /glusterfs/stop does NOT exist"
+              rsync -av --delete /glusterfs/ /glusterfs-copy/
+            fi
+            echo "all was ok - sleep 10 minutes"
+            sleep 600;
+          done
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /glusterfs-copy
+          mountPropagation: Bidirectional
+          name: glusterfs-copy
+        - mountPath: /glusterfs
+          mountPropagation: Bidirectional
+          name: glusterfs-root
+        - mountPath: /glusterfs/ccu2
+          name: glusterfs-ccu2
+        - mountPath: /glusterfs/iobroker
+          name: glusterfs-iobroker
+      volumes:
+      - name: glusterfs-copy
+        hostPath:
+          path: /media/glusterfs-copy
+          type: DirectoryOrCreate
+      - name: glusterfs-root
+        hostPath:
+          path: /media/glusterfs
+          type: DirectoryOrCreate
+      - name: glusterfs-ccu2
+        glusterfs:
+          endpoints: glusterfs-storage
+          path: ccu2
+      - name: glusterfs-iobroker
+        glusterfs:
+          endpoints: glusterfs-storage
+          path: iobroker
 ---
 # ------------------- ServiceAccount ------------------- #
 

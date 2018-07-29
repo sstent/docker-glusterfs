@@ -9,7 +9,7 @@ env:
   matrix:
   - DOCKER_ARCH=amd64
   - DOCKER_ARCH=arm64
- #- DOCKER_ARCH=arm <- cannot get ca-certificates to setup on qemu
+  - DOCKER_ARCH=arm <- cannot get ca-certificates to setup on qemu
 
 script:
 - ./build/travis_build.sh
