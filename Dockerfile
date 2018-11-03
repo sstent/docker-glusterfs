@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
     #apt-get install software-properties-common -y && \
-    #add-apt-repository ppa:gluster/glusterfs-3.10 -y && \
+    #add-apt-repository ppa:gluster/glusterfs-5 -y && \
     #apt-get update && \
     apt-get install -y glusterfs-server    \
                        iproute2            \
