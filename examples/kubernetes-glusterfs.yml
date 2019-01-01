@@ -20,6 +20,9 @@ spec:
       labels:
         app: "glusterfs-storage"
     spec:
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -104,7 +107,6 @@ spec:
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
-  namespace: kube-system
   labels:
     app: glusterfs-checker
   name: glusterfs-checker
