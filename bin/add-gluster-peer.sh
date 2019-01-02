@@ -99,7 +99,11 @@ if ! echo "${PEER_STATUS}" | grep "Peer in Cluster" >/dev/null; then
     # Peer probe
     echo "=> Probing peer ${PEER} ..."
     gluster peer probe ${PEER}
-    #sleep 5
+    while gluster peer status | grep -A2 "Hostname: ${peerToCheck}" | grep -qv Connected;
+      echo "Waiting for ${peerToCheck}"
+      sleep 1
+    done
+
 fi
 
 for volume in $GLUSTER_VOLUMES; do
