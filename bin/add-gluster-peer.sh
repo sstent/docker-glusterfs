@@ -28,7 +28,7 @@ SEMAPHORE_TIMEOUT=120
 source ${GLUSTER_CONF_FLAG}
 
 function echo() {
-   builtin echo $(basename $0): [From container ${MY_NAME}] $1
+   builtin echo $(basename $0): [From container ${PEER_IP}] $1
 }
 
 function detach() {
@@ -99,8 +99,8 @@ if ! echo "${PEER_STATUS}" | grep "Peer in Cluster" >/dev/null; then
     # Peer probe
     echo "=> Probing peer ${PEER} ..."
     gluster peer probe ${PEER}
-    while gluster peer status | grep -A2 "Hostname: ${PEER}" | grep -qv Connected; do
-      echo "Waiting for ${peerToCheck}"
+    while gluster peer status | grep -A2 "Hostname: ${PEER}" | tail -n1 | grep -qv Connected; do
+      echo "Waiting for ${PEER}"
       sleep 1
     done
 fi
