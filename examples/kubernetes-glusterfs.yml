@@ -117,7 +117,6 @@ spec:
   replicas: 1
   template:
     metadata:
-      namespace: kube-system
       labels:
         app: glusterfs-checker
     spec:
@@ -221,7 +220,7 @@ spec:
   - name: glusterfs-api
     port: 24007
     targetPort: 24007
-  - name: glusterfs-infiniband
+  - name: glusterfs-management
     port: 24008
     targetPort: 24008
   - name: glusterfs-brick0
