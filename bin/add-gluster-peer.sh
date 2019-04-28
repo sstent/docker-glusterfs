@@ -38,6 +38,10 @@ function detach() {
    exit 1
 }
 
+function status4peer() {
+   echo `gluster peer status | grep -A2 "Hostname: $1" | grep State: | awk -F: '{print $2}'`
+}
+
 [ "$DEBUG" == "1" ] && set -x && set +e
 
 echo "=> Checking if I can reach gluster container ${PEER_NAME} and IP $PEER_IP ..."
@@ -76,7 +80,7 @@ echo -n ${PEER_NAME}>${SEMAPHORE_FILE}
 
 # Check if there are rejected peers (for example due to a re-connect with a different IP)
 for peerToCheck in $(gluster peer status|grep Hostname|awk '{print $2}'); do
-  PEER_STATUS=`gluster peer status | grep -A2 "Hostname: ${peerToCheck}" | grep State: | awk -F: '{print $2}'`
+  PEER_STATUS=`status4peer ${peerToCheck}`
   echo "Peer status for ${peerToCheck}: $PEER_STATUS"
   if echo "${PEER_STATUS}" | grep "Peer Rejected"; then
     for volume in $GLUSTER_VOLUMES; do
@@ -94,7 +98,7 @@ for peerToCheck in $(gluster peer status|grep Hostname|awk '{print $2}'); do
 done
 
 # Probe the peer
-PEER_STATUS=`gluster peer status | grep -A2 "Hostname: ${PEER}" | grep State: | awk -F: '{print $2}'`
+PEER_STATUS=`status4peer ${PEER}`
 if ! echo "${PEER_STATUS}" | grep "Peer in Cluster" >/dev/null; then
     # Peer probe
     echo "=> Probing peer ${PEER} ..."
@@ -104,7 +108,8 @@ if ! echo "${PEER_STATUS}" | grep "Peer in Cluster" >/dev/null; then
       sleep 1
     done
     sleep 1
-    echo "=> Status for ${PEER}" is " $(gluster peer status | grep -A2 "Hostname: ${PEER}")
+    PEER_STATUS=`status4peer ${PEER}`
+    echo "=> Status for ${PEER} is ${PEER_STATUS}"
 fi
 
 for volume in $GLUSTER_VOLUMES; do

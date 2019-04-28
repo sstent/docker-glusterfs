@@ -37,7 +37,7 @@ spec:
         beta.kubernetes.io/arch: arm64
       containers:
       - name: glusterfs-server
-        image: angelnu/glusterfs:latest-arm
+        image: angelnu/glusterfs:latest
         imagePullPolicy: Always
         resources:
           requests:
