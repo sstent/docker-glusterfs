@@ -34,7 +34,7 @@ spec:
                 - glusterfs-storage
             topologyKey: "kubernetes.io/hostname"
       nodeSelector:
-        beta.kubernetes.io/arch: arm
+        beta.kubernetes.io/arch: arm64
       containers:
       - name: glusterfs-server
         image: angelnu/glusterfs:latest-arm
@@ -114,7 +114,7 @@ spec:
   serviceName: glusterfs-checker
   # changing replicas value will require a manual etcdctl member remove/add
   # command (remove before decreasing and add after increasing)
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:

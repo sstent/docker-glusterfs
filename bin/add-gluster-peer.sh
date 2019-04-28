@@ -78,7 +78,7 @@ echo -n ${PEER_NAME}>${SEMAPHORE_FILE}
 for peerToCheck in $(gluster peer status|grep Hostname|awk '{print $2}'); do
   PEER_STATUS=`gluster peer status | grep -A2 "Hostname: ${peerToCheck}" | grep State: | awk -F: '{print $2}'`
   echo "Peer status for ${peerToCheck}: $PEER_STATUS"
-  if echo "${PEER_STATUS}" | grep "Peer Rejected"; then
+  #if echo "${PEER_STATUS}" | grep "Peer Rejected"; then
     for volume in $GLUSTER_VOLUMES; do
       if gluster volume info ${volume} | grep ": ${peerToCheck}:${GLUSTER_BRICK_PATH}/${volume}$" >/dev/null; then
         echo "=> Peer container ${peerToCheck} was part of volume ${volume} but must be dropped -> removing brick ..."
@@ -90,7 +90,7 @@ for peerToCheck in $(gluster peer status|grep Hostname|awk '{print $2}'); do
     echo "Detaching peer before adding it again: ${peerToCheck}"
     gluster peer detach ${peerToCheck} force
     #sleep 5
-  fi
+  #fi
 done
 
 # Probe the peer
