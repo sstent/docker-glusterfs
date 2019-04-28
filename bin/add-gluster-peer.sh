@@ -39,7 +39,7 @@ function detach() {
 }
 
 function status4peer() {
-   echo `gluster peer status | grep -A2 "Hostname: $1" | grep State: | awk -F: '{print $2}'`
+   builtin echo `gluster peer status | grep -A2 "Hostname: $1" | grep State: | awk -F: '{print $2}'`
 }
 
 [ "$DEBUG" == "1" ] && set -x && set +e
