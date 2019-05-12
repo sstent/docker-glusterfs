@@ -42,6 +42,15 @@ function status4peer() {
    log `gluster peer status | grep -A2 "Hostname: $1" | grep State: | awk -F: '{print $2}'`
 }
 
+function getReplicas4Volume() {
+  local NUMBER_OF_REPLICAS=`gluster volume info ${volume} | grep "Number of Bricks:" | awk '{print $6}'`
+  if [ -z "${NUMBER_OF_REPLICAS}" ]; then
+    #Less than 2 replicas
+    NUMBER_OF_REPLICAS=`gluster volume info ${volume} | grep "Number of Bricks:" | awk '{print $4}'`
+  fi
+  echo $NUMBER_OF_REPLICAS
+}
+
 [ "$DEBUG" == "1" ] && set -x && set +e
 
 log "=> Checking if I can reach gluster container ${PEER_NAME} and IP $PEER_IP ..."
@@ -79,22 +88,20 @@ echo -n ${PEER_NAME}>${SEMAPHORE_FILE}
 
 
 # Check if there are rejected peers (for example due to a re-connect with a different IP)
-for peerToCheck in $(gluster peer status|grep Hostname|awk '{print $2}'); do
-  PEER_STATUS=`status4peer ${peerToCheck}`
-  log "Peer status for ${peerToCheck}: $PEER_STATUS"
-  if echo "${PEER_STATUS}" | grep "Peer Rejected"; then
-    for volume in $GLUSTER_VOLUMES; do
-      if gluster volume info ${volume} | grep ": ${peerToCheck}:${GLUSTER_BRICK_PATH}/${volume}$" >/dev/null; then
-        log "=> Peer container ${peerToCheck} was part of volume ${volume} but must be dropped -> removing brick ..."
-        NUMBER_OF_REPLICAS=`gluster volume info ${volume} | grep "Number of Bricks:" | awk '{print $6}'`
-        gluster --mode=script volume remove-brick ${volume} replica $((NUMBER_OF_REPLICAS-1)) ${peerToCheck}:${GLUSTER_BRICK_PATH}/${volume} force
+for volume in $GLUSTER_VOLUMES; do
+  for brick in "${PEER}:${GLUSTER_BRICK_PATH}/${volume}" $(gluster volume info ${volume}| grep ":${GLUSTER_BRICK_PATH}/${volume}$"| awk '{print $2}'); do
+    if ! gluster volume status ${volume}| grep -q ${brick}; then
+      log "Removing brick ${brick} ..."
+      NUMBER_OF_REPLICAS=`getReplicas4Volume ${volume}`
+      if [ "$NUMBER_OF_REPLICAS" -lt 1 ]; then
+        NUMBER_OF_REPLICAS=1
+      fi
+      if gluster --mode=script volume remove-brick ${volume} replica $((NUMBER_OF_REPLICAS-1)) ${brick} force; then
+        log "Removed ${brick} successfully"
         #sleep 1
       fi
-    done
-    log "Detaching peer before adding it again: ${peerToCheck}"
-    gluster peer detach ${peerToCheck} force
-    #sleep 5
-  fi
+    fi
+  done
 done
 
 # Probe the peer
@@ -139,7 +146,7 @@ for volume in $GLUSTER_VOLUMES; do
 	fi
 
   # Check how many peers are already joined in the cluster - needed to add a replica
-	NUMBER_OF_REPLICAS=`gluster volume info ${volume} | grep "Number of Bricks:" | awk '{print $6}'`
+	NUMBER_OF_REPLICAS=`getReplicas4Volume ${volume}`
 	if ! gluster volume info ${volume} | grep ": ${PEER}:${GLUSTER_BRICK_PATH}/${volume}$" >/dev/null; then
 	   log "=> Adding brick ${PEER}:${GLUSTER_BRICK_PATH}/${volume} to the cluster (replica=$((NUMBER_OF_REPLICAS+1)))..."
 	   gluster volume add-brick ${volume} replica $((NUMBER_OF_REPLICAS+1)) ${PEER}:${GLUSTER_BRICK_PATH}/${volume} force || detach
