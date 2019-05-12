@@ -104,6 +104,11 @@ for volume in $GLUSTER_VOLUMES; do
   done
 done
 
+# Remove the peer
+if gluster peer detach ${PEER} force; then
+  log "Detached ${PEER} successfully"
+fi
+
 # Probe the peer
 PEER_STATUS=`status4peer ${PEER}`
 if ! echo "${PEER_STATUS}" | grep "Peer in Cluster" >/dev/null; then
