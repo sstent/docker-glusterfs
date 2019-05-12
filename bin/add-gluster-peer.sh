@@ -93,7 +93,7 @@ for volume in $GLUSTER_VOLUMES; do
     if ! gluster volume status ${volume}| grep -q ${brick}; then
       log "Removing brick ${brick} ..."
       NUMBER_OF_REPLICAS=`getReplicas4Volume ${volume}`
-      if [ "$NUMBER_OF_REPLICAS" -lt 1 ]; then
+      if [ "$NUMBER_OF_REPLICAS" -lt "1" ]; then
         NUMBER_OF_REPLICAS=1
       fi
       if gluster --mode=script volume remove-brick ${volume} replica $((NUMBER_OF_REPLICAS-1)) ${brick} force; then
