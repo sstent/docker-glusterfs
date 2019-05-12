@@ -46,10 +46,10 @@ while [ ${ALIVE} -eq 0 ]; do
   done
 
   if [ ${ALIVE} -eq 0 ]; then
-     echo "Could not reach any GlusterFS container from this list: ${GLUSTER_PEERS}"
-     echo "I am either the first one or ${PEER} is not completely up -> I will keep trying..."
-     touch /IamReady
-     sleep 1
+    echo "Could not reach any GlusterFS container from this list: ${GLUSTER_PEERS}"
+    echo "I am either the first one or ${PEER} is not completely up -> I will keep trying..."
+    touch /IamReady
+    sleep 1
   fi
 done
 
@@ -57,19 +57,24 @@ done
 # This happens when we are bootstrapping the cluster
 SEMAPHORE_FILE=/tmp/adding-gluster-node.${PEER}
 if grep ${PEER} ${SEMAPHORE_FILE}&>/dev/null; then
-   echo "=> Seems like peer ${PEER} has just requested me to join him"
-   echo "=> So I'm waiting for 20 seconds to finish it..."
-   sleep 20
+  echo "=> Seems like peer ${PEER} has just requested me to join him"
+  echo "=> So I'm waiting for 20 seconds to finish it..."
+  sleep 20
 fi
 check_if_already_joined
 
 echo "=> Joining cluster with container ${PEER} ..."
 if sshpass -p ${ROOT_PASSWORD} ssh ${SSH_OPTS} ${SSH_USER}@${PEER} "add-gluster-peer.sh ${MY_NAME} ${MY_IP}"; then
-   echo "=> Successfully joined cluster with container ${PEER} ..."
-   touch /IamReady
+  echo "=> Successfully joined cluster with container ${PEER} ..."
+  touch /IamReady
 else
-   echo "=> Error joining cluster with container ${PEER} ..."
-   check_if_already_joined
-   echo "=> Error joining cluster with container ${PEER} - terminating ..."
-   kill -s SIGINT 1
+  echo "=> Error joining cluster with container ${PEER} ..."
+  check_if_already_joined
+  if [ -z "${DEBUG}" ]; then
+    echo "=> Error joining cluster with container ${PEER} - terminating ..."
+    kill -s SIGINT 1
+  else
+    echo "=> Error joining cluster with container ${PEER} - keeping it alive because env variable DEBUG is not empty ..."
+    touch /IamReady
+  fi
 fi
