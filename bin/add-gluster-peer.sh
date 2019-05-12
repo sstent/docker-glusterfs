@@ -39,7 +39,7 @@ function detach() {
 }
 
 function status4peer() {
-   log `gluster peer status | grep -A2 "Hostname: $1" | grep State: | awk -F: '{print $2}'`
+   echo `gluster peer status | grep -A2 "Hostname: $1" | grep State: | awk -F: '{print $2}'`
 }
 
 function getReplicas4Volume() {
