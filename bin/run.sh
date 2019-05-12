@@ -46,7 +46,7 @@ echo "DEBUG=\"${DEBUG}\"" >> ${GLUSTER_CONF_FLAG}
 echo "MY_IP=\"${MY_IP}\"" >> ${GLUSTER_CONF_FLAG}
 echo "MY_NAME=\"${MY_NAME}\"" >> ${GLUSTER_CONF_FLAG}
 echo "SERVICE_NAME=\"${SERVICE_NAME}\"" >> ${GLUSTER_CONF_FLAG}
-echo "DEBUG=\"${DEBUG}\"" >> ${GLUSTER_CONF_FLAG}
+echo "GLUSTER_DEBUG=\"${GLUSTER_DEBUG}\"" >> ${GLUSTER_CONF_FLAG}
 
 perl -p -i -e "s/^Port .*/Port ${SSH_PORT}/g" /etc/ssh/sshd_config
 perl -p -i -e "s/#?PasswordAuthentication .*/PasswordAuthentication yes/g" /etc/ssh/sshd_config

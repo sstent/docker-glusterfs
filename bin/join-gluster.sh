@@ -70,11 +70,11 @@ if sshpass -p ${ROOT_PASSWORD} ssh ${SSH_OPTS} ${SSH_USER}@${PEER} "add-gluster-
 else
   echo "=> Error joining cluster with container ${PEER} ..."
   check_if_already_joined
-  if [ -z "${DEBUG}" ]; then
+  if [ -z "${GLUSTER_DEBUG}" ]; then
     echo "=> Error joining cluster with container ${PEER} - terminating ..."
     kill -s SIGINT 1
   else
-    echo "=> Error joining cluster with container ${PEER} - keeping it alive because env variable DEBUG is not empty ..."
+    echo "=> Error joining cluster with container ${PEER} - keeping it alive because env variable GLUSTER_DEBUG is not empty ..."
     touch /IamReady
   fi
 fi
