@@ -1,5 +1,4 @@
-ARG BASE=node:8-slim
-FROM $BASE
+FROM ubuntu:focal
 
 ARG arch=arm
 ENV ARCH=$arch
