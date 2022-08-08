@@ -33,6 +33,7 @@ while [ ${ALIVE} -eq 0 ]; do
 
      # Skip myself
      if [ "${MY_IP}" == "${PEER}" ]; then
+         echo "skipping self"
         continue
      fi
      echo "=> Checking if I can reach gluster container ${PEER} ..."

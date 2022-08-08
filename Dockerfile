@@ -18,6 +18,7 @@ RUN apt-get update && \
                        iproute2            \
                        supervisor          \
                        openssh-server      \
+                       net-tools           \
                        dnsutils sshpass && \
     apt-get -y clean all
 
